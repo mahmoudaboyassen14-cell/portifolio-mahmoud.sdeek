@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mahmoud.sdeek</title>
+    <!-- <link rel="stylesheet" href="/style.css"> -->
+    <!-- ايكونة الموقع  -->
+    <link rel="shortcut icon" href="/favicon.ico" type="img">
+
+    <!-- مكتبة الايكونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        /* تعريف المتغيرات عامة  */
+        :root {
+            --primary-color: #033b4a;
+            --secondary-color: #20c997;
+            --gray: #4a4a4d;
+            --bg-primary: #ecf0f3;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: auto;
+            padding: 0 2rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* اى تكست عاوز اخلية ياخد تنسيقات معينة  */
+        .text-primary {
+            color: var(--secondary-color);
+        }
+
+        /* زرار about */
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: whitesmoke;
+            padding: 8px 20px;
+            font-weight: 500px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #15ab7e;
+
+        }
+
+        /*  home */
+        #home {
+            background-color: var(--bg-primary);
+            height: 100vh;
+
+        }
+
+        #home .navbar {
+            background-color: white;
+            border-bottom: 1px solid #ccc;
+            position: fixed;
+            width: 100%;
+            z-index: 1;
+
+        }
+
+        #home .navbar nav {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1100px;
+            margin: auto;
+            padding: 1.5rem 2rem;
+
+        }
+
+        #home .navbar nav ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        #home .navbar nav ul a {
+            margin: 0 15px;
+
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        #home .navbar nav ul a:hover {
+            margin: 0 15px;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        #home #logo {
+            color: var(--primary-color);
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        #home .header-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            align-items: center;
+            max-width: 1100px;
+            margin: auto;
+            padding: 5rem 2rem 0;
+            height: 100%;
+        }
+
+        #home .header-content .content-text {
+            margin-bottom: 5rem;
+        }
+
+        #home .header-content p span {
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        #home .header-content h1 {
+            font-size: 60px;
+            color: var(--primary-color);
+            text-shadow: 3px 3px 3px rgb(0, 0, 0, 0.2);
+            margin-top: 10px;
+        }
+
+        #home .header-content .title {
+            font-size: 20px;
+            color: var(--primary-color);
+            font-weight: 500;
+            margin: 10px 0px;
+        }
+
+        #home .header-content .social {
+            margin: 1rem 0 2rem;
+        }
+
+        #home .header-content .social a i {
+            font-size: 25px;
+            background-color: var(--gray);
+            align-items: center;
+            margin-right: 10px;
+            padding: 4px;
+            color: white;
+            border-radius: 15%;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        #home .header-content .social a i:hover {
+            transform: scale(0.85);
+        }
+
+
+        /*  about */
+        #About,
+        #skills,
+        #Services,
+        #portfolio {
+            padding: 6rem 0;
+        }
+
+        #About h2,
+        #skills h2,
+        #Services h2,
+        #portfolio h2,
+        #contact h2 {
+            text-align: center;
+            font-size: 38px;
+            font-weight: 600;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+        }
+
+        #About hr,
+        #skills hr,
+        #Services hr,
+        #portfolio hr {
+            width: 100px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            border: none;
+            margin: 5px auto 0;
+        }
+
+        #About .about-content {
+            margin-top: 4rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            column-gap: 3rem;
+        }
+
+        #About .about-content .col-1 h3 {
+            font-size: 25px;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+        }
+
+        #About.about-content .col-1 p {
+            color: var(--gray);
+            margin-bottom: 30px;
+            line-height: 1.8px;
+        }
+
+        #About .about-content .col-2 p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            border-bottom: solid 1px #ddd;
+            padding-bottom: 5px;
+        }
+
+
+        /*  SKILLS */
+        #skills {
+            background-color: var(--primary-color);
+        }
+
+        #skills h2,
+        #portfolio h2 {
+            color: white;
+            font-family: "Winky Rough", sans-serif;
+        }
+
+        #skills .skills-content {
+            margin: 2rem 12rem;
+            background-color: #052129;
+        }
+
+        #skills .skills-content .row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            text-align: center;
+            align-items: center;
+        }
+
+        #skills .skills-content .row .item {
+            color: white;
+            background-color: black;
+            margin: 20px;
+            padding: 1rem;
+            border: solid #082e39 2PX;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+
+        #skills .skills-content .row .item:hover {
+            box-shadow: 10px 10px 10px #00f4ab0c;
+            transform: scale(0.85);
+            background-color: rgb(20, 18, 18);
+        }
+
+        /* علشان اغير قيمة عنصر واحد من مجموعة  */
+        #skills .skills-content .row .item:nth-child(4) img {
+            max-width: 50px;
+        }
+
+        #skills .skills-content .row .item:nth-child(7) img {
+            max-width: 50px;
+        }
+
+        #skills .row img {
+            max-width: 40px;
+        }
+
+
+        /*  Services */
+        #Services,
+        #contact {
+            background-color: #00f4ab15;
+        }
+
+        #Services .heading img {
+            width: 55px;
+        }
+
+        #Services h2 {
+            font-family: "Winky Rough", sans-serif;
+        }
+
+        #Services .heading {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            gap: 10px;
+        }
+
+        #Services .container {
+            margin: 2rem 10rem;
+
+        }
+
+        #Services .row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            margin-top: 4rem;
+            text-align: center;
+            column-gap: 2rem;
+            row-gap: 4rem;
+
+        }
+
+        #Services .row .item {
+            background-color: rgb(255, 255, 255);
+            padding: 30px 15px;
+            box-shadow: 2px 2px 2px rgb(0, 0, 0, 0.2);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        #Services .row .item:hover {
+            transform: scale(1.04);
+
+        }
+
+        #Services .row .item h3 {
+            margin: 15px 0;
+            color: var(--primary-color);
+        }
+
+        #Services .row .item p {
+            font-size: 14px;
+        }
+
+        #Services .row img {
+            max-width: 100px;
+        }
+
+        #Services .row .item:nth-child(3) img {
+            max-width: 150px;
+        }
+
+        #Services .row .item:nth-child(4) img {
+            max-width: 150px;
+        }
+
+        /*  portfolio */
+
+        #portfolio {
+            background-color: var(--primary-color);
+        }
+
+        #portfolio .continer {
+            margin: 2rem 6rem;
+        }
+
+        #portfolio .row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        #portfolio .row .item {
+            background-color: white;
+            border-radius: 20px;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        #portfolio .row .item:hover {
+            transform: scale(1.03);
+        }
+
+
+        #portfolio .row .item img {
+            max-width: 100%;
+            max-height: 300px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        #portfolio .row .item div {
+            padding: 15px 15px;
+            font-size: 13px;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        #portfolio .row .item div:hover {
+            color: #15ab7e;
+            cursor: pointer;
+        }
+
+        #portfolio .row video {
+            max-width: 100%;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            border-bottom: 2px solid #ccc;
+        }
+
+
+        /*  contact */
+
+        #contact {
+            padding: 7rem 0 4rem;
+        }
+
+        #contact .row {
+            margin-top: 4rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1.5fr);
+            background-color: white;
+            box-shadow: 3px 3px 3px rgb(0, 0, 0, 0.2);
+            padding: 2rem 3rem;
+            border-radius: 10px;
+            column-gap: 2rem;
+        }
+
+        #contact .row input,
+        textarea {
+            display: block;
+            width: 100%;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #00f4ab0c;
+            border: 1px solid #bbb;
+            outline: none;
+        }
+
+        /*  footer */
+        #footer {
+            background-color: #222;
+            text-align: center;
+            color: whitesmoke;
+            font-size: 20px;
+            padding: 1rem 0;
+        }
+
+        .scroll-up {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--secondary-color);
+            border-radius: 5px;
+            padding: 5px 12px;
+            font-size: 18px;
+            color: white;
+            box-shadow: 2px 2px 10px rgb(0, 0, 0, 0.2);
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <main>
+        <!-- جزء ال  home -->
+        <header id="home">
+            <div class="navbar">
+                <nav>
+                    <a id="logo" href="#home">MAHMOUD.SDEEK</a>
+                    <ul>
+                        <li> <a href="#home">home</a></li>
+                        <li> <a href="#About">About</a></li>
+                        <li> <a href="#Services">Services</a></li>
+                        <li> <a href="#portfolio">portfolio</a></li>
+                        <li> <a href="#contact">contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="header-content">
+                <div class="content-text">
+                    <p><span class="text-primary">HI There, I'm</span></p>
+                    <h1>Mahmoud.sdeek</h1>
+                    <p class="title">Motion graphics video designer</p>
+                    <div class="social">
+                        <a href="http://www.youtube.com/@MahmoudSdek-df2tb" target="_blank">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                        <a href="https://www.facebook.com/" target="_blank">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="https://github.com/mahmoudaboyassen14-cell" target="_blank">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/mahmoud-sdeek-8205222a9?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                            target="_blank">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                        <a href="https://x.com/mahmoud_sdeek14?t=YIm7GAC10IYA1H4OXnaieA&s=09" target="_blank">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                    </div>
+                    <a href="#About" class="btn-primary">About Me <i class="fa-solid fa-circle-arrow-down"></i></a>
+                </div>
+                <img src="محمود (6).png" alt="mahmoud.sdeek">
+            </div>
+        </header>
+
+        <!-- جزء ال  about -->
+        <section id="About">
+            <div class="container">
+                <h2>About Me</h2>
+                <hr>
+                <div class="about-content">
+                    <div class="col-1">
+                        <h3> I'M <SPan class="text-primary">mahmoud.sdeek,</SPan>Motion graphics developer</h3>
+                        <p>I’m a freelance motion graphic designer, creating animated content for ads, social media, and
+                            explainer videos. I use
+                            tools like After Effects and Illustrator to bring ideas to life. Working independently
+                            allows me
+                            to collaborate with
+                            diverse clients and deliver creative, high-quality visuals on time.</p><br>
+
+                        <p>I’ve worked on several projects with Egypt’s Ministry of Youth and Sports, designing motion
+                            graphics that support
+                            youth-focused initiatives. These projects aimed to engage and empower young people through
+                            creative visual content. My
+                            role included concept development, animation, and delivering impactful messages through
+                            design.
+                        </p>
+                    </div>
+                    <div class="col-2">
+                        <P><b>Age : </b>40</P>
+                        <P><b>Email :</b>mahmoudaboyassen14@gmail.com</P>
+                        <P><b>Place : </b>sohag</P>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+        <!-- جزء ال  skills -->
+        <section id="skills">
+            <div class="container">
+                <h2>
+                    <i class="fa-solid fa-laptop-code"></i> skills &amp; <span class="text-primary">Abilities</span>
+                </h2>
+                <hr>
+            </div>
+            <div class="skills-content">
+                <div class="row">
+                    <div class="item">
+                        <img src="html.webp" alt="html">
+                        <p>HTML</p>
+                    </div>
+                    <div class="item">
+                        <img src="css.png" alt="css">
+                        <p>CSS</p>
+                    </div>
+                    <div class="item">
+                        <img src="js.png" alt="js">
+                        <p>J.S</p>
+                    </div>
+                    <div class="item">
+                        <img src="AE-removebg-preview.png" alt="AE">
+                        <p>AE</p>
+                    </div>
+                    <div class="item">
+                        <img src="AI-removebg-preview.png" alt="AI">
+                        <p>AI</p>
+                    </div>
+                    <div class="item">
+                        <img src="PS.png" alt="PS">
+                        <p>PS</p>
+                    </div>
+                    <div class="item">
+                        <img src="video_sctipe.png" alt="video sctipe">
+                        <p>video sctipe</p>
+                    </div>
+                    <div class="item">
+                        <img src="github2.png" alt="GitHub">
+                        <p>GitHub</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- جزء ال  Services -->
+        <section id="Services">
+            <div class="container">
+                <div class="heading">
+                    <img src="لابتوب.png" alt="Services">
+                    <h2>My <span class="text-primary">Services</span></h2>
+                </div>
+                <!-- <hr> -->
+                <div class="row">
+                    <div class="item">
+                        <img src="موشن.png" alt="Motion">
+                        <h3> Motion graphics</h3>
+                        <p> I can design professional motion graphic videos</p>
+                    </div>
+                    <div class="item">
+                        <img src="فيديو اسكرايب.png" alt="whiteboard animation">
+                        <h3>whiteboard animation</h3>
+                        <p>I can design whiteboard animation videos</p>
+                    </div>
+                    <div class="item">
+                        <img src="365.jpg" alt="Office 365">
+                        <h3>Office 365</h3>
+                        <p>I am good at working professionally on Office 365</p>
+                    </div>
+                    <div class="item">
+                        <img src="ويب.jpg" alt="web design">
+                        <h3>web design</h3>
+                        <p>I can design website pages using html, css and javascript</p>
+                    </div>
+                    <div class="item">
+                        <img src="لوجو.jpg" alt="logos design">
+                        <h3>logos design</h3>
+                        <p>"I can design and animate logos professionally.</p>
+                    </div>
+                    <div class="item">
+                        <img src="25488949_video_editing2_01-removebg-preview.png" alt="video editor">
+                        <h3>video editor</h3>
+                        <p>I’m a video editor with experience in creating dynamic and engaging content.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- جزء ال  portfolio -->
+        <section id="portfolio">
+            <div class="continer">
+                <div class="heding">
+                    <h2>
+                        <i class="fa-solid fa-laptop-code"></i> My <span class="text-primary">Portfolio</span>
+                    </h2>
+                </div>
+                <hr>
+                <div class="row">
+                    <!-- Portfolio 1 -->
+                    <div class="item">
+                        <img src="طور وغير.jpeg" alt="">
+                        <div>
+                            <h3><a href="https://youtu.be/jsIwwQbw5ps?si=L3UzjGpws8a4wqVX" target="_blank">اعلان طور
+                                    وغير</a>
+                            </h3>
+                        </div>
+                    </div>
+                    <!-- Portfolio 2 -->
+                    <div class="item">
+                        <img src="ابداع.jpeg" alt="">
+                        <div>
+                            <h3> <a href="https://youtu.be/AQUmC5-IvKE?si=KWEO3eYnWm3_8F24" target="_blank">اعلان مسابقة
+                                    ابداع</a>2025
+                            </h3>
+                        </div>
+
+                    </div>
+                    <!-- Portfolio 3 -->
+                    <div class="item">
+                        <img src="مدمن تعلم.jpeg" alt="">
+                        <div>
+                            <h3><a href="https://www.youtube.com/watch?v=LdmQHoz1oY0&t=8s" target="_blank"> مدمن
+                                    تعلم</a></h3>
+                        </div>
+                    </div>
+                    <!-- Portfolio 4 -->
+                    <div class="item">
+                        <img src="الانتظام فى الصلاه.jpeg" alt="">
+                        <div>
+                            <h3><a href="https://youtu.be/FJrmQbM80uk?si=xK1IYL8Mm0CZB2Gd" target="_blank">افضل تطبيق
+                                    لادارة الوقت</a></h3>
+                        </div>
+
+                    </div>
+                    <!-- Portfolio 5 -->
+                    <div class="item">
+                        <img src="مدمن رقمى.jpeg" alt="">
+                        <div>
+                            <h3><a href="https://youtu.be/jsIwwQbw5ps?si=L3UzjGpws8a4wqVX">الادمان الرقمى</a>
+                            </h3>
+                        </div>
+                    </div>
+                    <!-- Portfolio 6-->
+                    <div class="item">
+                        <img src="اعلان النادى الثقافى.jpeg" alt="">
+                        <div>
+                            <h3><a href="https://youtu.be/iLtRJDRcNgY?si=uhPaYRVZAuuzu2oQ" target="_blank"> اعلان النادى
+                                    الثقافى</a> </h3>
+                        </div>
+
+                    </div>
+                    <!-- Portfolio 7 -->
+                    <div class="item">
+                        <img src="الرايا البيضاء.jpeg" alt="">
+                        <div>
+                            <h3> <a href="https://youtu.be/GUQrQn1KDp4?si=TuTnOAqGTxh40k00" target="_blank"> الرايا
+                                    البيضاء</a>
+                            </h3>
+
+                        </div>
+
+                    </div>
+                    <!-- Portfolio 8 -->
+                    <div class="item">
+                        <img src="سوشيال.jpeg" alt="">
+                        <div>
+                            <h3> <a href="https://youtu.be/_KPWdJ_YCiY?si=Mlvxbtf541yzNdJ9" target="_blank">لوجو سوشيال
+                                    مديا </a>
+                            </h3>
+                        </div>
+
+                    </div>
+                    <!-- Portfolio 9 -->
+                    <div class="item">
+                        <img src="اوعى تخطط فى رمضان.jpeg" alt="">
+                        <div>
+                            <h3><a href="https://youtu.be/zrrzzg4y0do?si=p1cZokPfhEsBUEdR" target="_blank">اوعى تخطط
+                                    لرمضان</a>
+                            </h3>
+                        </div>
+
+                    </div>
+                    <!-- Portfolio 10 -->
+                    <div class="item">
+                        <img src="ورط نفسك.jpeg" alt="">
+                        <div>
+                            <h3><a href="https://youtu.be/mKAaDGKyft0?si=pOzvaV2K4N1MFM4h" target="_blank"> ورط نفسك
+                                </a> </h3>
+                        </div>
+                    </div>
+                    <!-- Portfolio 11 -->
+                    <div class="item">
+                        <img src="محمود 4.jpeg" alt="">
+                        <div>
+                            <h3><a href="https://youtu.be/UL1JV2qrmA4" target="_blank">تحريك لوجو بطريقة احترافية</a>
+                            </h3>
+                        </div>
+
+                    </div>
+                    <!-- Portfolio 12 -->
+                    <div class="item">
+                        <img src="لوجو محمود 3.jpeg" alt="">
+                        <div>
+                            <h3> <a href="https://youtu.be/K7wlXe9UNSo" target="_blank">تحريك اسم محمود</a> </h3>
+                        </div>
+
+                    </div>
+                    <!-- Portfolio 13 -->
+                    <div class="item">
+                        <img src="التغافل الزكى.jpeg" alt="">
+                        <div>
+                            <h3> <a href="https://youtu.be/PgWVgPQOHqg?si=gthVKbyzBeCzj9en" target="_blank">التغافل
+                                    الزكى</a> </h3>
+                        </div>
+                    </div>
+                    <!-- Portfolio 14 -->
+                    <div class="item">
+                        <img src="فيديو تحريك الكاميرا.jpeg" alt="">
+                        <div>
+                            <h3> <a href="https://youtu.be/K4QG1A7QXNs" target="_blank">فيديو تحريك الكاميرا</a> </h3>
+
+                        </div>
+                    </div>
+                    <!-- Portfolio 15 -->
+                    <div class="item">
+                        <img src="سقراط.jpeg" alt="">
+                        <div>
+                            <h3> <a href="https://youtu.be/HQ2mvg6TWDg?si=RPPLnE5dM3r0Apcb" target="_blank">حلقة
+                                    سقراط</a> </h3>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- جزء ال  contact & fotter -->
+
+        <section id="contact">
+            <div class="container">
+                <h2>
+                    <i class="fa-solid fa-headset"></i> Get In <span class="text-primary "> Touch</span>
+                </h2>
+                <div class="row">
+                    <img src="3148691_451480-PFEKMF-513-removebg-preview.png" alt="Get In Touch">
+                    <form action="https://formsubmit.co/mahmoudaboyassen14@gmail.com" method="POST">
+                        <input type="text" name="Name" id="Name" placeholder="Name" required>
+                        <input type="email" name="email" id="Email" placeholder="Email" required role="alert">
+                        <textarea name="messages" id="messages" cols="30" rows="10" placeholder="messages"></textarea>
+                        <input type="submit" class="btn-primary">
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- جزء ال  footer -->
+    <footer id="footer">
+        <p>&copy; 2025 ! All rights reserved </p>
+        <a href="#home" class="scroll-up"><i class="fa-solid fa-arrow-up"></i></a>
+
+    </footer>
+
+
+
+
+
+    <script>
+        // <!-- الجزء الخاص بتشغيل الفيديو  -->
+        const videos = document.querySelectorAll("video");
+
+        videos.forEach(video => {
+            video.addEventListener("play", () => {
+                videos.forEach(v => {
+                    if (v !== video) {
+                        v.pause();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
